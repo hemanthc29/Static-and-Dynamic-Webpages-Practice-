@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Tasks</title>
+<style>
+h1{color:red;}
+p{color:blue;}
+.task7-p{font-size:18px;font-family:Arial,sans-serif;}
+.task8-h1{color:#2c3e50;}
+.task8-h2{color:#16a085;}
+.task8-p{color:#c0392b;}
+.login-form{background-color:lightgray;padding:20px;border-radius:6px;}
+.login-form input{width:300px;padding:6px 10px;margin:4px 0 12px 0;display:block;border:1px solid #aaa;border-radius:4px;}
+.student-table{border-collapse:collapse;width:100%;background-color:#f2f2f2;}
+.student-table th,.student-table td{border:2px solid #333;padding:10px 14px;text-align:left;}
+</style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Part 1: Inline CSS</h1>
+
+<h2 style="color:blue;">Task 1: Welcome to CSS</h2>
+
+<p style="font-size:20px;color:green;">Task 2: This paragraph has font-size 20px and green color.</p>
+
+<button style="background-color:orange;color:white;padding:8px 18px;border:none;border-radius:4px;font-weight:bold;">Click Me</button>
+
+<h3 style="color:purple;">Task 4 - Heading 1 (purple)</h3>
+<h3 style="color:teal;">Task 4 - Heading 2 (teal)</h3>
+<h3 style="color:crimson;">Task 4 - Heading 3 (crimson)</h3>
+
+<table style="background-color:yellow;text-align:center;border-collapse:collapse;width:60%;margin:10px 0;">
+<tr><td style="padding:8px;border:1px solid #333;">Cell 1</td><td style="padding:8px;border:1px solid #333;">Cell 2</td></tr>
+<tr><td style="padding:8px;border:1px solid #333;">Cell 3</td><td style="padding:8px;border:1px solid #333;">Cell 4</td></tr>
+</table>
+
+<hr>
+
+<h1>Part 2: Internal CSS</h1>
+
+<h1>Task 6: h1 red (internal)</h1>
+<p>Task 6: p blue (internal)</p>
+
+<p class="task7-p">Task 7 - Paragraph 1: 18px Arial</p>
+<p class="task7-p">Task 7 - Paragraph 2: 18px Arial</p>
+<p class="task7-p">Task 7 - Paragraph 3: 18px Arial</p>
+
+<h1 class="task8-h1">Task 8 - h1 (dark blue)</h1>
+<h2 class="task8-h2">Task 8 - h2 (green)</h2>
+<p class="task8-p">Task 8 - p (red)</p>
+
+<div class="login-form">
+<h3>Task 9: Login Form</h3>
+<label>Username:</label>
+<input type="text" placeholder="Enter username">
+<label>Password:</label>
+<input type="password" placeholder="Enter password">
+<button>Login</button>
+</div>
+
+<h3>Task 10: Student Details Table</h3>
+<table class="student-table">
+<tr><th>ID</th><th>Name</th><th>Grade</th></tr>
+<tr><td>101</td><td>Alice</td><td>A</td></tr>
+<tr><td>102</td><td>Bob</td><td>B</td></tr>
+<tr><td>103</td><td>Charlie</td><td>A-</td></tr>
+</table>
+
+<hr>
+
+<h1>Part 3: External CSS (style.css linked)</h1>
+<h1 class="ext-h1">Task 11: h1 purple (external)</h1>
+<p class="ext-p">Task 12 - Paragraph 1: 20px darkgreen</p>
+<p class="ext-p">Task 12 - Paragraph 2: 20px darkgreen</p>
+<p class="ext-p">Task 12 - Paragraph 3: 20px darkgreen</p>
+<p class="ext-p">Task 12 - Paragraph 4: 20px darkgreen</p>
+<p class="ext-p">Task 12 - Paragraph 5: 20px darkgreen</p>
+
+<nav class="nav-menu">
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+<h3>Task 14: Registration Form (external CSS)</h3>
+<form class="reg-form">
+<input type="text" placeholder="Full Name">
+<input type="email" placeholder="Email">
+<input type="password" placeholder="Password">
+<input type="submit" value="Register">
+</form>
+
+<div class="college-home">
+<h2>Task 15: College Website Homepage</h2>
+<p>All styles for this section are from external CSS.</p>
+</div>
+
+<hr>
+
+<h1>Part 4: Selectors</h1>
+
+<h2>Element Selector (Task 16)</h2>
+<h1 class="elem-h1">Heading (h1 red via element selector)</h1>
+<p class="elem-p">Paragraph (p blue via element selector)</p>
+
+<h2>Class Selector (Task 17)</h2>
+<p class="highlight">This paragraph has yellow background and black text (class selector).</p>
+
+<h2>Task 18: 3 Cards with class selector</h2>
+<div class="card">Card 1 - border, padding, shadow</div>
+<div class="card">Card 2 - border, padding, shadow</div>
+<div class="card">Card 3 - border, padding, shadow</div>
+
+<h2>ID Selector (Task 19)</h2>
+<h1 id="title">This heading has dark blue color and center alignment (ID selector).</h1>
+
+<h2>Task 20: Combined Selectors Practice</h2>
+<h1 id="main-title">Main Title (red + center align)</h1>
+<p class="content">Content paragraph (blue via class selector)</p>
+<button class="green-btn">Green Background Button</button>
+
+</body>
+</html>
