@@ -1,0 +1,22 @@
+body {
+    background-color: #faf9f6;
+    font-family: 'Inter', sans-serif;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+.story {
+    max-width: 500px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #2c2c2c;
+}
+.story::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+    float: left;
+    margin-right: 8px;
+    margin-top: 5px;
+    color: #1d4ed8;
+    font-weight: bold;
+}

@@ -1,0 +1,27 @@
+body {
+    background-color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.custom-nav a {
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 15px;
+    transition: color 0.2s;
+}
+.custom-nav a:link {
+    color: #3b82f6;
+}
+.custom-nav a:visited {
+    color: #8b5cf6;
+}
+.custom-nav a:hover {
+    color: #10b981;
+}
+.custom-nav a:active {
+    color: #ef4444;
+}

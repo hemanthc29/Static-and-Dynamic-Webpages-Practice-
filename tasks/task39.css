@@ -1,0 +1,54 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: #ffffff;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #1e3a8a;
+    color: #ffffff;
+}
+.logo {
+    font-weight: 700;
+    font-size: 20px;
+}
+.links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+}
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #eff6ff;
+}
+.hero h1 {
+    color: #1e3a8a;
+    font-size: 32px;
+    margin: 0 0 15px 0;
+}
+.hero p {
+    color: #4b5563;
+    font-size: 16px;
+    margin: 0;
+}
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+    .links a {
+        margin: 0 10px;
+    }
+    .hero {
+        padding: 50px 20px;
+    }
+    .hero h1 {
+        font-size: 24px;
+    }
+}

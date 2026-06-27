@@ -1,0 +1,24 @@
+body {
+    background-color: #111827;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.logo {
+    width: 80px;
+    height: 80px;
+    fill: none;
+    stroke: #8b5cf6;
+    stroke-width: 6;
+    animation: spinLogo 4s linear infinite;
+}
+@keyframes spinLogo {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
