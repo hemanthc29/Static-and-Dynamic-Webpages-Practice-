@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WFH-T3 · Python-FSD</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      background: #f4f7fc;
+      padding: 2rem 1.5rem;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .task-section {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem 2rem 1.5rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    }
+    .task-section h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      border-left: 6px solid #3b82f6;
+      padding-left: 1rem;
+      color: #0f172a;
+    }
+    .task-item {
+      background: #f8fafc;
+      border-radius: 18px;
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 2rem;
+      border: 1px solid #e9edf2;
+    }
+    .task-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .task-item h3 i {
+      color: #3b82f6;
+      width: 1.6rem;
+    }
+    .task-demo {
+      margin-top: 0.75rem;
+    }
+    .box-row {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .box {
+      background: #3b82f6;
+      color: white;
+      padding: 1.2rem;
+      border-radius: 16px;
+      flex: 1 1 0;
+      text-align: center;
+      font-weight: 500;
+      min-width: 80px;
+    }
+    .box:nth-child(2) { background: #8b5cf6; }
+    .box:nth-child(3) { background: #ec4899; }
+    .card-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem 1.2rem;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+    }
+    .gallery-grid {
+      display: grid;
+      gap: 0.8rem;
+    }
+    .gallery-item {
+      background: #cbd5e1;
+      aspect-ratio: 1 / 0.8;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      color: #1e293b;
+      background: #e2e8f0;
+    }
+    .dashboard {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .sidebar {
+      background: #1e293b;
+      color: #f1f5f9;
+      padding: 1.5rem;
+      border-radius: 24px;
+      flex: 1 1 200px;
+      min-width: 160px;
+    }
+    .main-content {
+      background: #f1f5f9;
+      padding: 1.5rem;
+      border-radius: 24px;
+      flex: 3 1 300px;
+    }
+    .pricing-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .pricing-plan {
+      background: white;
+      border-radius: 24px;
+      padding: 1.8rem 1.2rem;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+    }
+    .footer-grid {
+      display: grid;
+      gap: 1.5rem;
+      background: #0f172a;
+      color: #f1f5f9;
+      padding: 2rem;
+      border-radius: 28px;
+    }
+    .footer-col {
+      background: rgba(255,255,255,0.04);
+      border-radius: 16px;
+      padding: 0.8rem 1rem;
+    }
+    .profile-card {
+      display: flex;
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      align-items: stretch;
+    }
+    .profile-img {
+      background: #94a3b8;
+      flex: 1 1 120px;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      color: #f8fafc;
+    }
+    .profile-details {
+      flex: 3 1 200px;
+      padding: 1.5rem;
+      background: #fafcff;
+    }
+    .responsive-table-wrap {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+    }
+    th, td {
+      padding: 0.8rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e9edf2;
+    }
+    th {
+      background: #f1f5f9;
+      font-weight: 600;
+    }
+    .task1-heading {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .task2-bg {
+      padding: 1rem 1.5rem;
+      border-radius: 20px;
+      background: #bfdbfe;
+    }
+    .task5-img img {
+      max-width: 100%;
+      border-radius: 20px;
+      display: block;
+    }
+    .nav-horizontal {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      align-items: center;
+      background: #1e293b;
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+    }
+    .nav-horizontal a {
+      color: #f1f5f9;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.3rem 0;
+    }
+    .nav-horizontal .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f1f5f9;
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #0f172a;
+    }
+    .nav-inline {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-vertical {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background: #1e293b;
+      padding: 1rem 1.5rem;
+      border-radius: 32px;
+    }
+    .nav-vertical a {
+      color: #f1f5f9;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .typo-heading {
+      font-weight: 700;
+    }
+    .typo-text {
+      max-width: 700px;
+    }
+    .btn-task15 {
+      width: 200px;
+      height: 60px;
+      background: #3b82f6;
+      border: none;
+      border-radius: 40px;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .login-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 28px;
+      border: 1px solid #e2e8f0;
+      max-width: 400px;
+    }
+    .login-form input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin: 0.5rem 0 1rem;
+      border: 1px solid #d1d9e6;
+      border-radius: 40px;
+      font-size: 1rem;
+    }
+    .login-form button {
+      width: 100%;
+      padding: 0.8rem;
+      background: #3b82f6;
+      border: none;
+      border-radius: 40px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .task20-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f172a;
+      padding: 1rem 2rem;
+      border-radius: 40px;
+      color: white;
+      flex-wrap: wrap;
+    }
+    .task20-header .logo {
+      color: white;
+      font-size: 1.8rem;
+    }
+    .task20-header nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .task20-header nav a {
+      color: #f1f5f9;
+      text-decoration: none;
+    }
+    .hero {
+      background: #2563eb;
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 32px;
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .college-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .college-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+    }
+    .testimonial {
+      background: #f1f5f9;
+      padding: 1.5rem;
+      border-radius: 20px;
+      margin: 0.5rem 0;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.4rem 0 1rem;
+      border: 1px solid #d1d9e6;
+      border-radius: 40px;
+    }
+    .contact-form textarea {
+      border-radius: 20px;
+      min-height: 100px;
+    }
+    .contact-form button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .task20-footer {
+      background: #0f172a;
+      color: #f1f5f9;
+      padding: 2rem;
+      border-radius: 28px;
+      margin-top: 2rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .task1-heading { font-size: 36px; }
+      .task2-bg { background: #bbf7d0; }
+    }
+    @media (max-width: 768px) {
+      .task1-heading { font-size: 24px; }
+      .task2-bg { background: #e5e7eb; }
+      .task5-img img { display: none; }
+      .nav-horizontal { flex-direction: column; align-items: stretch; border-radius: 28px; }
+      .nav-horizontal a { padding: 0.5rem 0; border-bottom: 1px solid #334155; }
+      .nav-horizontal a:last-child { border-bottom: none; }
+      .nav-horizontal .menu-toggle { display: block; align-self: flex-end; }
+      .nav-horizontal .nav-links { display: none; flex-direction: column; width: 100%; }
+      .nav-horizontal .nav-links.open { display: flex; }
+      .site-header { flex-direction: column; align-items: stretch; gap: 0.8rem; }
+      .nav-inline { flex-direction: column; align-items: center; gap: 0.5rem; }
+      .nav-vertical { flex-direction: column; align-items: stretch; }
+      .profile-card { flex-direction: column; }
+      .profile-img { min-height: 140px; }
+      .btn-task15 { width: 100%; height: 50px; }
+      .login-form { max-width: 95%; }
+      .task20-header { flex-direction: column; align-items: stretch; gap: 0.8rem; }
+      .task20-header nav { flex-direction: column; align-items: center; gap: 0.6rem; }
+    }
+    @media (max-width: 480px) {
+      .task1-heading { font-size: 24px; }
+    }
+
+    @media (min-width: 769px) {
+      .task5-img img { display: block; }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .task1-heading { font-size: 36px; }
+      .task2-bg { background: #bbf7d0; }
+    }
+
+    @media (max-width: 768px) {
+      .task1-heading { font-size: 24px; }
+      .task2-bg { background: #e5e7eb; }
+    }
+
+    @media (min-width: 1025px) {
+      .task1-heading { font-size: 48px; }
+      .task2-bg { background: #bfdbfe; }
+    }
+
+    @media (min-width: 1025px) {
+      .task-item .task-demo .task3-p { width: 70%; }
+    }
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .task-item .task-demo .task3-p { width: 90%; }
+    }
+    @media (max-width: 768px) {
+      .task-item .task-demo .task3-p { width: 100%; }
+    }
+
+    @media (min-width: 769px) {
+      .task4-boxes .box-row { flex-direction: row; }
+    }
+    @media (max-width: 768px) {
+      .task4-boxes .box-row { flex-direction: column; }
+    }
+
+    @media (min-width: 1025px) {
+      .card-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (min-width: 1025px) {
+      .gallery-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .dashboard { flex-direction: column; }
+      .sidebar { order: -1; }
+    }
+
+    @media (min-width: 1025px) {
+      .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (min-width: 1025px) {
+      .footer-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (min-width: 1025px) {
+      .task20-footer { grid-template-columns: repeat(4, 1fr); }
+      .college-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .task20-footer { grid-template-columns: repeat(2, 1fr); }
+      .college-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .task20-footer { grid-template-columns: 1fr; }
+      .college-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .responsive-table-wrap table, 
+      .responsive-table-wrap thead, 
+      .responsive-table-wrap tbody, 
+      .responsive-table-wrap th, 
+      .responsive-table-wrap td, 
+      .responsive-table-wrap tr { 
+        display: block; 
+      }
+      .responsive-table-wrap thead tr { 
+        display: none; 
+      }
+      .responsive-table-wrap tr { 
+        border: 1px solid #e2e8f0; 
+        border-radius: 20px; 
+        margin-bottom: 1rem; 
+        padding: 1rem; 
+        background: white; 
+      }
+      .responsive-table-wrap td { 
+        border: none; 
+        padding: 0.4rem 0; 
+        display: flex; 
+        justify-content: space-between; 
+        border-bottom: 1px solid #e9edf2; 
+      }
+      .responsive-table-wrap td:last-child { border-bottom: none; }
+      .responsive-table-wrap td::before { 
+        content: attr(data-label); 
+        font-weight: 600; 
+        color: #475569; 
+        margin-right: 1rem; 
+      }
+    }
+
+    .typo-heading { font-size: 2.8rem; }
+    .typo-text { font-size: 1.2rem; line-height: 1.6; }
+    @media (max-width: 1024px) {
+      .typo-heading { font-size: 2.2rem; }
+      .typo-text { font-size: 1.1rem; }
+    }
+    @media (max-width: 768px) {
+      .typo-heading { font-size: 1.8rem; }
+      .typo-text { font-size: 1rem; line-height: 1.8; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="task-section">
+    <h2>Level 1 — Basic Media Queries</h2>
+
+    <div class="task-item">
+      <h3><i class="fas fa-heading"></i> Task 1 · Heading</h3>
+      <div class="task-demo">
+        <h1 class="task1-heading">Responsive Heading</h1>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-palette"></i> Task 2 · Background</h3>
+      <div class="task-demo task2-bg">
+        <p>Background changes per device.</p>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-paragraph"></i> Task 3 · Paragraph width</h3>
+      <div class="task-demo">
+        <p class="task3-p" style="background:#e9edf2; padding:0.8rem 1.2rem; border-radius:20px;">This paragraph width adapts: 70% desktop, 90% tablet, 100% mobile.</p>
+      </div>
+    </div>
+
+    <div class="task-item task4-boxes">
+      <h3><i class="fas fa-cubes"></i> Task 4 · Three boxes</h3>
+      <div class="task-demo box-row">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-image"></i> Task 5 · Hide image on mobile</h3>
+      <div class="task-demo task5-img">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%233b82f6'/%3E%3Ctext x='30' y='120' font-family='Arial' font-size='28' fill='white' font-weight='bold'%3EDesktop%20Image%3C/text%3E%3C/svg%3E" alt="desktop image">
+      </div>
+    </div>
+  </div>
+
+  <div class="task-section">
+    <h2>Level 2 — Responsive Navigation</h2>
+
+    <div class="task-item">
+      <h3><i class="fas fa-bars"></i> Task 6 · Horizontal → Vertical</h3>
+      <div class="task-demo nav-vertical">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-bars"></i> Task 7 · Menu button (mobile)</h3>
+      <div class="task-demo">
+        <div class="nav-horizontal">
+          <button class="menu-toggle" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-bars"></i></button>
+          <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-image"></i> Task 8 · Logo sizes</h3>
+      <div class="task-demo">
+        <div style="display:flex; align-items:center; gap:0.8rem;">
+          <span style="font-size:3rem; background:#1e293b; color:white; padding:0.2rem 1rem; border-radius:20px; display:inline-block;">LOGO</span>
+          <span style="font-size:0.9rem; color:#64748b;">(scales: large desktop, medium tablet, small mobile)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-header"></i> Task 9 · Header: nav beside/ below</h3>
+      <div class="task-demo site-header">
+        <span class="logo">Brand</span>
+        <div class="nav-inline">
+          <a href="#">Home</a>
+          <a href="#">Shop</a>
+          <a href="#">About</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="task-section">
+    <h2>Level 3 — Responsive Layouts</h2>
+
+    <div class="task-item">
+      <h3><i class="fas fa-cards"></i> Task 10 · Four cards</h3>
+      <div class="task-demo card-grid">
+        <div class="card">Card 1</div>
+        <div class="card">Card 2</div>
+        <div class="card">Card 3</div>
+        <div class="card">Card 4</div>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-images"></i> Task 11 · Gallery</h3>
+      <div class="task-demo gallery-grid">
+        <div class="gallery-item">📸 1</div>
+        <div class="gallery-item">📸 2</div>
+        <div class="gallery-item">📸 3</div>
+        <div class="gallery-item">📸 4</div>
+        <div class="gallery-item">📸 5</div>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-columns"></i> Task 12 · Dashboard</h3>
+      <div class="task-demo dashboard">
+        <div class="sidebar">Sidebar</div>
+        <div class="main-content">Main Content</div>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-tags"></i> Task 13 · Pricing</h3>
+      <div class="task-demo pricing-grid">
+        <div class="pricing-plan"><strong>Basic</strong><br>$9</div>
+        <div class="pricing-plan"><strong>Pro</strong><br>$29</div>
+        <div class="pricing-plan"><strong>Enterprise</strong><br>$99</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="task-section">
+    <h2>Level 4 — Responsive Typography</h2>
+
+    <div class="task-item">
+      <h3><i class="fas fa-font"></i> Task 14 · Typography + line-height</h3>
+      <div class="task-demo">
+        <h2 class="typo-heading">Responsive Heading</h2>
+        <p class="typo-text">This paragraph changes font size and line-height. On mobile, line-height increases for readability. Desktop: larger, tablet: medium, mobile: smaller with more spacing.</p>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-hand-pointer"></i> Task 15 · Button</h3>
+      <div class="task-demo">
+        <button class="btn-task15">Click me</button>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-sign-in-alt"></i> Task 16 · Login form</h3>
+      <div class="task-demo login-form">
+        <label>Email</label>
+        <input type="email" placeholder="you@example.com">
+        <label>Password</label>
+        <input type="password" placeholder="••••••••">
+        <button>Sign In</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="task-section">
+    <h2>Level 5 — Responsive Components</h2>
+
+    <div class="task-item">
+      <h3><i class="fas fa-arrow-down"></i> Task 17 · Footer</h3>
+      <div class="task-demo footer-grid">
+        <div class="footer-col">About</div>
+        <div class="footer-col">Services</div>
+        <div class="footer-col">Support</div>
+        <div class="footer-col">Legal</div>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-user-circle"></i> Task 18 · Profile card</h3>
+      <div class="task-demo profile-card">
+        <div class="profile-img"><i class="fas fa-user"></i></div>
+        <div class="profile-details"><strong>Alex Rivera</strong><br>UX Designer · 5 years<br><span style="color:#475569;">alex@design.io</span></div>
+      </div>
+    </div>
+
+    <div class="task-item">
+      <h3><i class="fas fa-table"></i> Task 19 · Table → stacked cards</h3>
+      <div class="task-demo responsive-table-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>Role</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Name">Emma</td><td data-label="Role">Admin</td><td data-label="Status">Active</td></tr>
+            <tr><td data-label="Name">Liam</td><td data-label="Role">Editor</td><td data-label="Status">Pending</td></tr>
+            <tr><td data-label="Name">Olivia</td><td data-label="Role">Viewer</td><td data-label="Status">Inactive</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="task-section">
+    <h2>Level 6 — Mini Project (Task 20)</h2>
+    <div class="task-item" style="padding:0; background:transparent; border:none;">
+      <div class="task-demo" style="background:#f8fafc; padding:1.5rem; border-radius:28px;">
+        <div class="task20-header">
+          <span class="logo">CollegeHub</span>
+          <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Courses</a>
+            <a href="#">Faculty</a>
+            <a href="#">Contact</a>
+          </nav>
+        </div>
+        <div class="hero">
+          <h2>Welcome to CollegeHub</h2>
+          <p>Empowering futures with world-class education.</p>
+        </div>
+        <div style="display:grid; gap:1.5rem;">
+          <div class="college-grid">
+            <div class="college-card"><strong>About</strong><br>We are a premier institution focused on innovation.</div>
+            <div class="college-card"><strong>Courses</strong><br>Engineering, Design, Business, and more.</div>
+            <div class="college-card"><strong>Faculty</strong><br>Expert professors with industry experience.</div>
+          </div>
+          <div style="background:#f1f5f9; padding:1.5rem; border-radius:28px;">
+            <h3 style="margin-bottom:1rem;">Student Testimonials</h3>
+            <div class="testimonial">"CollegeHub gave me the skills to excel." — Sarah</div>
+            <div class="testimonial">"Incredible support and resources." — James</div>
+          </div>
+          <div class="contact-form" style="background:white; padding:1.5rem; border-radius:28px;">
+            <h3>Contact Us</h3>
+            <input type="text" placeholder="Your name">
+            <input type="email" placeholder="Your email">
+            <textarea placeholder="Message"></textarea>
+            <button>Send</button>
+          </div>
+        </div>
+        <div class="task20-footer">
+          <div>© CollegeHub 2026</div>
+          <div>Privacy</div>
+          <div>Terms</div>
+          <div>Support</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

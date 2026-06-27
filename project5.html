@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Figma Dashboard Clone</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#D1E7DD] flex items-center justify-center min-h-screen p-6 font-sans">
+
+  <div class="bg-[#0D0E12] text-white w-full max-w-[1100px] rounded-[32px] p-6 shadow-2xl flex gap-6">
+    
+    <div class="flex flex-col justify-between items-center w-14 py-2">
+      <div class="flex flex-col gap-6 items-center w-full">
+        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#0D0E12] font-black text-xl">
+          N
+        </div>
+        <div class="flex flex-col gap-5 mt-4 text-gray-500">
+          <button class="hover:text-white p-2"><i class="fa-regular fa-heart text-lg"></i></button>
+          <button class="hover:text-white p-2 bg-[#1A1D26] rounded-xl text-white"><i class="fa-regular fa-square-check text-lg"></i></button>
+          <button class="hover:text-white p-2"><i class="fa-regular fa-gem text-lg"></i></button>
+          <button class="hover:text-white p-2"><i class="fa-solid fa-gear text-lg"></i></button>
+        </div>
+      </div>
+      <button class="w-10 h-10 bg-[#1A1D26] hover:bg-gray-800 rounded-full flex items-center justify-center text-gray-400">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+
+    <div class="flex-1 flex flex-col gap-6">
+      
+      <div class="flex justify-between items-center">
+        <div class="flex gap-2 bg-[#14161D] p-1.5 rounded-full border border-gray-800/40">
+          <button class="px-4 py-1.5 bg-[#1A1D26] text-white rounded-full text-xs font-medium flex items-center gap-2">
+            <i class="fa-regular fa-square-check"></i> Check Box
+          </button>
+          <button class="px-4 py-1.5 text-gray-500 hover:text-white rounded-full text-xs font-medium flex items-center gap-2">
+            <i class="fa-solid fa-chart-simple"></i> Monitoring
+          </button>
+          <button class="px-4 py-1.5 text-gray-500 hover:text-white rounded-full text-xs font-medium flex items-center gap-2">
+            <i class="fa-regular fa-comment"></i> Support
+          </button>
+          <button class="p-1.5 text-gray-500 hover:text-white"><i class="fa-solid fa-magnifying-glass text-xs mx-1"></i></button>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="text-right">
+            <p class="text-xs font-semibold">Bogdan Nikitin</p>
+            <p class="text-[10px] text-gray-500">@Nixtio</p>
+          </div>
+          <div class="relative w-9 h-9 rounded-full bg-amber-700 overflow-hidden border border-gray-700">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=60" alt="Avatar" class="object-cover w-full h-full">
+            <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 border-2 border-[#0D0E12] rounded-full"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-end">
+        <h1 class="text-2xl font-bold tracking-wider font-mono">CHECK BOX</h1>
+        <div class="flex gap-2 text-xs">
+          <select class="bg-[#14161D] border border-gray-800 px-3 py-1.5 rounded-xl text-gray-400 outline-none"><option>Date: Now</option></select>
+          <select class="bg-[#14161D] border border-gray-800 px-3 py-1.5 rounded-xl text-gray-400 outline-none"><option>Product: All</option></select>
+          <select class="bg-[#14161D] border border-gray-800 px-3 py-1.5 rounded-xl text-gray-400 outline-none"><option>Profile: Bogdan</option></select>
+          <button class="bg-[#14161D] border border-gray-800 px-2.5 py-1.5 rounded-xl text-gray-400"><i class="fa-solid fa-sliders"></i></button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-12 gap-5">
+        
+        <div class="col-span-6 flex flex-col gap-5">
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-[#14161D] p-4 rounded-2xl flex flex-col justify-between h-36">
+              <div class="flex justify-between items-center text-gray-500 text-[10px] font-bold tracking-wider">
+                <span>CUSTOMER</span>
+                <i class="fa-solid fa-ellipsis text-xs"></i>
+              </div>
+              <div class="grid grid-cols-2 gap-2 my-2">
+                <div>
+                  <span class="text-emerald-500 text-xs"><i class="fa-solid fa-caret-up"></i></span>
+                  <h3 class="text-xl font-bold font-mono">2,4%</h3>
+                  <p class="text-[9px] text-gray-500">Web Surfing</p>
+                </div>
+                <div>
+                  <span class="text-amber-500 text-xs"><i class="fa-solid fa-caret-down"></i></span>
+                  <h3 class="text-xl font-bold font-mono">1,1%</h3>
+                  <p class="text-[9px] text-gray-500">Radio Station</p>
+                </div>
+              </div>
+              <div class="h-6 w-full flex items-end">
+                <svg viewBox="0 0 100 20" class="w-full h-full stroke-amber-500 fill-none stroke-2">
+                  <path d="M0,15 Q15,5 30,12 T60,5 T90,15 T100,10" />
+                  <path d="M0,10 Q20,18 45,8 T80,12 T100,5" class="stroke-emerald-500" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="bg-[#14161D] p-4 rounded-2xl flex flex-col justify-between h-36">
+              <div class="flex justify-between items-center text-gray-500 text-[10px] font-bold tracking-wider">
+                <span>PRODUCT</span>
+                <i class="fa-solid fa-ellipsis text-xs"></i>
+              </div>
+              <div class="grid grid-cols-2 gap-2 my-2">
+                <div>
+                  <span class="text-emerald-500 text-xs"><i class="fa-solid fa-caret-up"></i></span>
+                  <h3 class="text-xl font-bold font-mono">2,8%</h3>
+                  <p class="text-[9px] text-gray-500">Partners</p>
+                </div>
+                <div>
+                  <span class="text-amber-500 text-xs"><i class="fa-solid fa-caret-down"></i></span>
+                  <h3 class="text-xl font-bold font-mono">3,2%</h3>
+                  <p class="text-[9px] text-gray-500">Owners</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-8 gap-1 opacity-70">
+                <div class="space-y-1"><div class="w-1.5 h-1.5 bg-gray-700 rounded-full"></div><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div></div>
+                <div class="space-y-1"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div><div class="w-1.5 h-1.5 bg-gray-700 rounded-full"></div></div>
+                <div class="space-y-1"><div class="w-1.5 h-1.5 bg-amber-500 rounded-full"></div><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div></div>
+                <div class="space-y-1"><div class="w-1.5 h-1.5 bg-gray-700 rounded-full"></div><div class="w-1.5 h-1.5 bg-gray-700 rounded-full"></div></div>
+                <div class="space-y-1"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div><div class="w-1.5 h-1.5 bg-amber-500 rounded-full"></div></div>
+                <div class="space-y-1"><div class="w-1.5 h-1.5 bg-amber-500 rounded-full"></div><div class="w-1.5 h-1.5 bg-gray-700 rounded-full"></div></div>
+                <div class="space-y-1"><div class="w-1.5 h-1.5 bg-gray-700 rounded-full"></div><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div></div>
+                <div class="space-y-1"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div><div class="w-1.5 h-1.5 bg-amber-500 rounded-full"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-[#14161D] p-5 rounded-2xl flex flex-col justify-between h-[210px]">
+            <div class="flex justify-between items-center text-gray-500 text-[10px] font-bold tracking-wider">
+              <span>PRODUCT</span>
+              <i class="fa-solid fa-ellipsis text-xs"></i>
+            </div>
+            
+            <div class="flex justify-between items-end h-28 px-2">
+              <div class="w-6 bg-white rounded-full flex flex-col items-center justify-between py-1 text-[8px] text-black font-bold h-16"><span class="opacity-50">52</span><div class="w-1.5 h-1.5 bg-amber-500 rounded-full"></div></div>
+              <div class="w-6 bg-[#A4F542] rounded-full flex flex-col items-center justify-between py-1 text-[8px] text-black font-bold h-24"><span>96</span><div class="w-1.5 h-1.5 bg-amber-800 rounded-full"></div></div>
+              <div class="w-6 bg-[#68D938] rounded-full flex flex-col items-center justify-between py-1 text-[8px] text-black font-bold h-14"><span>48</span><div class="w-1.5 h-1.5 bg-white rounded-full"></div></div>
+              <div class="w-6 bg-[#A4F542] rounded-full flex flex-col items-center justify-between py-1 text-[8px] text-black font-bold h-16"><span>80</span><div class="w-1.5 h-1.5 bg-slate-900 rounded-full"></div></div>
+              <div class="w-6 bg-amber-500 rounded-full flex flex-col items-center justify-between py-1 text-[8px] text-black font-bold h-12"><span>34</span><div class="w-1.5 h-1.5 bg-white rounded-full"></div></div>
+              <div class="w-6 bg-[#A4F542] rounded-full flex flex-col items-center justify-between py-1 text-[8px] text-black font-bold h-20"><span>92</span><div class="w-1.5 h-1.5 bg-white rounded-full"></div></div>
+              <div class="w-6 bg-[#68D938] rounded-full flex flex-col items-center justify-between py-1 text-[8px] text-black font-bold h-14"><span>58</span><div class="w-1.5 h-1.5 bg-amber-800 rounded-full"></div></div>
+              <div class="w-6 bg-amber-500 rounded-full flex flex-col items-center justify-between py-1 text-[8px] text-black font-bold h-20"><span>84</span><div class="w-1.5 h-1.5 bg-white rounded-full"></div></div>
+              <div class="w-6 bg-white rounded-full flex flex-col items-center justify-between py-1 text-[8px] text-black font-bold h-10"><span>36</span><div class="w-1.5 h-1.5 bg-amber-500 rounded-full"></div></div>
+            </div>
+
+            <div class="flex justify-between items-center text-[10px] text-gray-500 pt-2 border-t border-gray-800/50">
+              <div class="flex gap-3">
+                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 bg-white rounded-full"></span> Resources</span>
+                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 bg-[#A4F542] rounded-full"></span> Valid</span>
+                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span> Invalid</span>
+              </div>
+              <div>Total: <span class="text-white font-mono font-bold">1,012</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-6 bg-[#14161D] p-5 rounded-2xl flex flex-col justify-between h-[376px]">
+          <div class="flex justify-between items-center text-gray-500 text-[10px] font-bold tracking-wider">
+            <span>PROJECTS TIMELINE</span>
+            <i class="fa-solid fa-ellipsis text-xs"></i>
+          </div>
+
+          <div class="flex-1 flex flex-col gap-2.5 my-3 relative text-[9px] font-mono text-gray-500">
+            <div class="absolute inset-0 flex justify-between pointer-events-none opacity-5 px-8">
+              <div class="w-px bg-white h-full"></div><div class="w-px bg-white h-full"></div><div class="w-px bg-white h-full"></div><div class="w-px bg-white h-full"></div><div class="w-px bg-white h-full"></div>
+            </div>
+
+            <div class="flex items-center h-5">
+              <span class="w-10">30.09</span>
+              <div class="flex-1 pl-4">
+                <div class="w-24 ml-4 bg-[#A4F542] text-black rounded-full h-5 flex items-center justify-between px-1.5 text-[8px] font-bold">
+                  <span class="w-3.5 h-3.5 rounded-full bg-white flex items-center justify-center text-[6px]"><i class="fa-solid fa-layer-group"></i></span> <span>98</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center h-5">
+              <span class="w-10">29.09</span>
+              <div class="flex-1 pl-4">
+                <div class="w-32 ml-16 bg-amber-500 text-black rounded-full h-5 flex items-center justify-between px-1.5 text-[8px] font-bold">
+                  <span class="w-3.5 h-3.5 rounded-full bg-black text-white flex items-center justify-center text-[6px]">✕</span> <span>29</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center h-5">
+              <span class="w-10">28.09</span>
+              <div class="flex-1 pl-4">
+                <div class="w-28 ml-6 bg-white text-black rounded-full h-5 flex items-center justify-between px-1.5 text-[8px] font-bold">
+                  <div class="flex -space-x-1">
+                    <div class="w-3.5 h-3.5 rounded-full bg-gray-400 border border-white"></div>
+                    <div class="w-3.5 h-3.5 rounded-full bg-gray-600 border border-white"></div>
+                  </div>
+                  <span>15</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center h-5">
+              <span class="w-10">27.09</span>
+              <div class="flex-1 pl-4">
+                <div class="w-36 ml-10 bg-[#68D938] text-black rounded-full h-5 flex items-center justify-between px-1.5 text-[8px] font-bold">
+                  <span class="w-3.5 h-3.5 rounded-full bg-pink-400"></span> <span>21</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center h-5">
+              <span class="w-10">26.09</span>
+              <div class="flex-1 pl-4">
+                <div class="w-16 ml-2 bg-white text-black rounded-full h-5 flex items-center justify-between px-1.5 text-[8px] font-bold">
+                  <span class="w-3.5 h-3.5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[6px]"><i class="fa-brands fa-ethereum"></i></span> <span>10</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center h-5">
+              <span class="w-10">25.09</span>
+              <div class="flex-1 pl-4">
+                <div class="w-24 ml-12 bg-amber-500 text-black rounded-full h-5 flex items-center justify-between px-1.5 text-[8px] font-bold">
+                  <span class="w-3.5 h-3.5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[6px]"><i class="fa-brands fa-facebook-f"></i></span> <span>15</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center h-5">
+              <span class="w-10">24.09</span>
+              <div class="flex-1 pl-4">
+                <div class="w-40 ml-16 bg-[#A4F542] text-black rounded-full h-5 flex items-center justify-between px-1.5 text-[8px] font-bold">
+                  <div class="flex -space-x-1">
+                    <div class="w-3.5 h-3.5 rounded-full bg-black flex items-center justify-center text-[5px] text-white">1</div>
+                    <div class="w-3.5 h-3.5 rounded-full bg-purple-900 flex items-center justify-center text-[5px] text-white">2</div>
+                  </div>
+                  <span>19</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between pl-14 pr-2 pt-2 text-[8px] border-t border-gray-800/30">
+              <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span>
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center text-[10px] text-gray-500 pt-2 border-t border-gray-800/50">
+            <div class="flex gap-3">
+              <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 bg-[#A4F542] rounded-full"></span> Customer</span>
+              <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span> Product</span>
+              <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 bg-white rounded-full"></span> Web</span>
+            </div>
+            <div>Total: <span class="text-white font-mono font-bold">284</span></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
